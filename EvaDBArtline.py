@@ -42,9 +42,9 @@ def main():
 
     for i in range(img.shape[0]):
         for j in range(img.shape[1]):
-            if greyimg[i][j] < 70 and img[i][j] > 100:
+            if greyimg[i][j] < 70 and img[i][j] > 200:
                 img[i][j] = 20
-            if img[i][j] < 100:
+            if img[i][j] < 230:
                 img[i][j] = 30
 
 
