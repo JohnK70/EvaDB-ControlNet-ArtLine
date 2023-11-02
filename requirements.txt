@@ -1,0 +1,4 @@
+evadb==0.3.8
+matplotlib==3.8.1
+numpy==1.23.3
+pandas==1.5.1
