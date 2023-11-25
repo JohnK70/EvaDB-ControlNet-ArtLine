@@ -24,8 +24,14 @@ def main():
     cursor.query("DROP FUNCTION IF EXISTS invertImage;").df()
     cursor.query(f"CREATE FUNCTION invertImage IMPL  './invertImage.py';").df()
 
+    kernel = 25
+    border = 0
     cursor.query("DROP FUNCTION IF EXISTS blurImage;").df()
-    cursor.query(f"CREATE FUNCTION blurImage IMPL  './blurImage.py';").df()
+    cursor.query(f"""
+                    CREATE FUNCTION blurImage 
+                    IMPL  './blurImage.py' 
+                    kernel '{kernel}' 
+                    bordertype '{border}';""").df()
 
     cursor.query("DROP FUNCTION IF EXISTS invertblurImage;").df()
     cursor.query(f"CREATE FUNCTION invertblurImage IMPL  './invertBlur.py';").df()
@@ -50,15 +56,21 @@ def main():
                 if img[i][j] < 230:
                     img[i][j] = 30
         
-        fileName = 'Images\\smilingteen.jpeg'
-        cursor.query(f"INSERT INTO Image (name, data) VALUES ('{fileName}', '{img}')")
+        # fileName = 'Images\\smilingteen.jpeg'
+        # cursor.query(f"INSERT INTO Image (name, data) VALUES ('name', '{img}')").df()
+
+        cv2.imwrite('./tempImage/temp.jpeg', img)
+        cursor.query("DROP TABLE IF EXISTS Image;").df()
+        cursor.query("LOAD IMAGE 'tempImage/*.jpeg' INTO Image").df()
 
     if prompts[1] != None:
         cursor.query("DROP FUNCTION IF EXISTS controlNet;").df()
         cursor.query(f"""
                      CREATE FUNCTION controlNet
                      IMPL  './ControlNet.py'
-                     prompt '{prompts[1]}';
+                     prompt '{prompts[1]}'
+                     a_prompt '{prompts[2]}'
+                     n_prompt '{prompts[3]}';
                      """).df()
 
         res5 = cursor.query("SELECT controlNet(img.data) FROM Image as img ").df()
@@ -95,9 +107,17 @@ def user_input():
             else:
                 prompts.append(answer)
             break
-        if prompts[0] == 'N' and prompts[1] == 'None':
+        if prompts[0] == 'N' and prompts[1] == None:
             print("The image needs to be altered. Please select sketch, prompt, or both.")
+            prompts = []
         else:
+            prompts.append("best quality")
+            prompts.append("longbody, lowres, " \
+              "bad anatomy, bad hands, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality")
+            if prompts[0] == 'Y' and prompts[1] != None:
+                prompts[1] = "Pencil Sketch, High Contrast, detailed line art, fine details, " + prompts[1]
+                prompts[2] = "Black Lines, Plenty White, Minimalistic, Empty, Defined Lines, High Contrast, " + prompts[2]
+                prompts[3] = "Color, Blurry, Gray, Light Gray, Dark Gray, " + prompts[3]
             print("Thank you! Your image will now be processed.")
             return prompts
 
