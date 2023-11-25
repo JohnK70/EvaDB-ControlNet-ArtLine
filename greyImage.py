@@ -45,5 +45,6 @@ class GreyImage(AbstractFunction):
             return frame
 
         ret = pd.DataFrame()
+        arr = frame["data"].to_numpy()
         ret["greyframe"] = frame.apply(GreyImage, axis=1)
         return ret
