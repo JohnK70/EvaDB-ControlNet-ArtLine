@@ -31,6 +31,7 @@ Clone the github repo into your desired location. Then use <pip install -r requi
 Two models will need to be installed and put in the models folder. These are v1-5-pruned.ckpt and control_v11p_sd15_canny.pth. The download links can be found for them below:
 
 v1-5-pruned.ckpt: https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned.ckpt?download=true
+
 control_v11p_sd15_canny.pth: https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15_canny.pth?download=true
 
 There are two folders related to the repository: Images and TestImages.
