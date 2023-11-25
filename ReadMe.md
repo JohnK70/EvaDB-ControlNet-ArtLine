@@ -12,10 +12,16 @@ If the ControlNet prompt is used, then the app will then query the ControlNet fu
 
 ## Example Output:
 Prompt: Beach Background, Young Boy
-![alt text](https://github.com/JohnK70/EvaDBP1Artline/blob/main/ControlNetTeen.png?raw=true)
+![alt text](https://github.com/JohnK70/EvaDB-ControlNet-Artline/blob/main/ControlNetTeen.png?raw=true)
 
 Prompt: City background, Bold Colors, Defined Woman
-![alt text](https://github.com/JohnK70/EvaDBP1Artline/blob/main/modelCityWoman.png?raw=true)
+![alt text](https://github.com/JohnK70/EvaDB-ControlNet-Artline/blob/main/modelCityWoman.png?raw=true)
+
+ControlNet can also be used with the original ArtLine functionality together. An example of an output is seen below.
+
+## Example Output:
+Prompt: Pencil Sketch of Man
+![alt text](https://github.com/JohnK70/EvaDB-ControlNet-Artline/blob/main/DrakeControlArtLine.png?raw=true)
 
 ### Running the app:
 Ensure you have Python 3.10. This is required for all packages to run properly.
