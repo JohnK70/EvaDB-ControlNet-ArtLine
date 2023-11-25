@@ -38,12 +38,18 @@ control_v11p_sd15_canny.pth: https://huggingface.co/lllyasviel/ControlNet-v1-1/r
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 There are three image based folders related to the repository: Images, TestImages, and TempImage.
+
 TestImages holds all images that you want to use later. Use this for storing any images. It will not be used when running the code.
+
 TempImage is used if both ArtLine and ControlNet are used at the same time. **Do not alter this folder.**
+
 Images will hold the single image you want to convert using LineArt or ControlNet. **Only put one image in this folder.**
 
-
+---------------------------------------------------------------------------------------------------------------------------------------
 To use the app, make sure the Images folder is clear except for the one image you want to alter.
+
 After this, you can run the app by running the file EvaDBArtline.py
+
 The app will prompt you to use either LineArt, ControlNet, or both. Follow the prompts in the terminal to select the options.
+
 MatPlotLib will then display the outputted final image. This will be deleted once you close out of the image, so if you want to save it you must do so manually.
