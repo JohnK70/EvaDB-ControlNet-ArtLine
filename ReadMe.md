@@ -8,10 +8,14 @@ If a sketch is used, the following occurs to the image: Turns the image into gra
 ## Example Output:
 ![alt text](https://github.com/JohnK70/EvaDBP1Artline/blob/main/githubImage.png?raw=true)
 
-If the ControlNet prompt is used, then the app will then query the ControlNet function. It will then process the image through Stable Diffusion and the Canny control method. This produces the final image, an example of which can be seen below. The prompt used for this example was "Beach Background, Young Boy".
+If the ControlNet prompt is used, then the app will then query the ControlNet function. It will then process the image through Stable Diffusion and the Canny control method. This produces the final image, an example of which can be seen below.
 
 ## Example Output:
+Prompt: Beach Background, Young Boy
 ![alt text](https://github.com/JohnK70/EvaDBP1Artline/blob/main/ControlNetTeen.png?raw=true)
+
+Prompt: City background, Bold Colors, Defined Woman
+![alt text](https://github.com/JohnK70/EvaDBP1Artline/blob/main/modelCityWoman.png?raw=true)
 
 ### Running the app:
 Ensure you have Python 3.10. This is required for all packages to run properly.
