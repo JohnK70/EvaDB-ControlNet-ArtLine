@@ -1,11 +1,16 @@
-# EvaDB Project 1: ArtLine
+# EvaDB Project 2: ControlNet with Artline
 ## Introduction:
-This project takes in a profile image of a person and converts it to an lineart sketch. EvaDB is utilized to perform CV2 functions through queries on an image. For now this project focused on converting an image through EvaDB into lineart, but will focus on increasing the complexity in the future.
+This project takes in a profile image of a person and can convert the style to a new image using ControlNet. EvaDB is utilized to perform CV2 functions through queries on an image for ArtLine sketches as well as hosting ControlNet in a separate function. 
 
-Currently, the application runs by taking in an image from the Image folder. It then applies these functions in this order: Turns the image into grayscale, inverts the grayscale image, Gaussian Blurs the inverted grayscale image, then inverts the result. The grayscaled image is then divided by the grayscaled-inverted-blurred-inverted image. After this, this new image is compared with the original image data and grayscale data to fill in empty spaces left by the above functionality. This produces the final image, which an example can be seen below.
+Currently, the application runs by taking in an image from the Image folder. It will then ask the user if it wants to run a lineart sketch or ControlNet prompt. 
+If a sketch is used, the following occurs to the image: Turns the image into grayscale, inverts the grayscale image, Gaussian Blurs the inverted grayscale image, then inverts the result. The grayscaled image is then divided by the grayscaled-inverted-blurred-inverted image. After this, this new image is compared with the original image data and grayscale data to fill in empty spaces left by the above functionality. This produces the final image, which an example can be seen below.
 
 ## Example Output:
 ![alt text](https://github.com/JohnK70/EvaDBP1Artline/blob/main/githubImage.png?raw=true)
+
+If the ControlNet prompt is used, then the app will then query the ControlNet function. It will then process the image through Stable Diffusion and the Canny control method. This produces the final image, an example of which can be seen below.
+
+## Example Output:
 
 ### Running the app:
 Ensure you have Python 3.10. This is required for all packages to run properly.
