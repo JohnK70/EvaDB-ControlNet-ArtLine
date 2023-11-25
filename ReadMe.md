@@ -17,14 +17,16 @@ Ensure you have Python 3.10. This is required for all packages to run properly.
 
 Clone the github repo into your desired location. Then use <pip install -r requirements.txt> inside the directory to install requirements.
 
+Two models will need to be installed and put in the models folder. These are v1-5-pruned.ckpt and control_v11p_sd15_canny.pth. The download links can be found for them below:
+
+v1-5-pruned.ckpt: https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned.ckpt?download=true
+control_v11p_sd15_canny.pth: https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15_canny.pth?download=true
+
 There are two folders related to the repository: Images and TestImages.
 TestImages holds all images that you want to use later. Use this for storing any images. It will not be used when running the code.
-Images will hold the single image you want to convert into lineart.
+Images will hold the single image you want to convert using LineArt or ControlNet.
 
-To use the app, make sure the Images folder is clear except for the one image you want to turn into lineart.
+To use the app, make sure the Images folder is clear except for the one image you want to alter.
 After this, you can run the app by running the file EvaDBArtline.py
-MatPlotLib will then display the outputted lineart image. This will be deleted once you close out of the image, so if you want to save it you must do so manually.
-
-### Future Work:
-* Fine tune model to produce outputs closer to ArtLine
-* Add ControlNet functionality (prompts which change the resulting image)
+The app will prompt you to use either LineArt, ControlNet, or both. Follow the prompts in the terminal to select the options.
+MatPlotLib will then display the outputted final image. This will be deleted once you close out of the image, so if you want to save it you must do so manually.
