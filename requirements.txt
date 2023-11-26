@@ -66,10 +66,6 @@ SQLAlchemy-Utils==0.41.1
 sympy==1.12
 thefuzz==0.20.0
 tokenizers==0.12.1
-torch==2.0.1+cu118
-torchaudio==2.0.2+cu118
-torchmetrics==1.2.0
-torchvision==0.15.2+cu118
 tqdm==4.66.1
 transformers==4.19.2
 typing-inspect==0.9.0
