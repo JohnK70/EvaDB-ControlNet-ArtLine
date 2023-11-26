@@ -70,7 +70,8 @@ def main():
                      IMPL  './ControlNet.py'
                      prompt '{prompts[1]}'
                      a_prompt '{prompts[2]}'
-                     n_prompt '{prompts[3]}';
+                     n_prompt '{prompts[3]}'
+                     ddim_steps '{prompts[4]}';
                      """).df()
 
         res5 = cursor.query("SELECT controlNet(img.data) FROM Image as img ").df()
@@ -111,13 +112,15 @@ def user_input():
             print("The image needs to be altered. Please select sketch, prompt, or both.")
             prompts = []
         else:
-            prompts.append("best quality")
+            prompts.append("best quality, extremely detailed")
             prompts.append("longbody, lowres, " \
               "bad anatomy, bad hands, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality")
+            prompts.append('20')
             if prompts[0] == 'Y' and prompts[1] != None:
                 prompts[1] = "Pencil Sketch, High Contrast, detailed line art, fine details, " + prompts[1]
                 prompts[2] = "Black Lines, Plenty White, Minimalistic, Empty, Defined Lines, High Contrast, " + prompts[2]
                 prompts[3] = "Color, Blurry, Gray, Light Gray, Dark Gray, " + prompts[3]
+                prompts[4] = '16'
             print("Thank you! Your image will now be processed.")
             return prompts
 

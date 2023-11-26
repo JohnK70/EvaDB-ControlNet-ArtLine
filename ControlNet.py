@@ -18,14 +18,14 @@ from evadb.functions.decorators.io_descriptors.data_types import PandasDataframe
 class ControlNet(AbstractFunction):
     @setup(cacheable=False, function_type="controlnet", batchable=True)
     def setup(self, prompt = None, a_prompt = "", n_prompt = "", \
-                num_samples = 1, image_resolution = 512, ddim_steps = 16, guess_mode = False, strength = 1.0, \
+                num_samples = 1, image_resolution = 512, ddim_steps = 20, guess_mode = False, strength = 1.0, \
                 scale = 6.0, seed = -1, eta = 0.0, low_threshold = 50, high_threshold = 60, preprocessor = None):
         self.prompt = prompt
         self.a_prompt = a_prompt
         self.n_prompt = n_prompt
         self.num_samples = num_samples
         self.image_resolution = image_resolution
-        self.ddim_steps = ddim_steps
+        self.ddim_steps = int(ddim_steps)
         self.guess_mode = guess_mode
         self.strength = strength
         self.scale = scale
