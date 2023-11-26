@@ -26,7 +26,11 @@ Prompt: Pencil Sketch of Man
 ### Running the app:
 Ensure you have Python 3.10. This is required for all packages to run properly.
 
-Clone the github repo into your desired location. Then use <pip install -r requirements.txt> inside the directory to install requirements.
+Clone the github repo into your desired location. 
+
+Then use <pip install torch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 --index-url https://download.pytorch.org/whl/cu118> inside the directory to install torch.
+
+Then use <pip install -r requirements.txt> inside the directory to install all other requirements.
 
 ---------------------------------------------------------------------------------------------------------------------------------------
 Two models will need to be installed and put in the models folder. These are v1-5-pruned.ckpt and control_v11p_sd15_canny.pth. The download links can be found for them below:
