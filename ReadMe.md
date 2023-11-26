@@ -24,7 +24,7 @@ Prompt: Pencil Sketch of Man
 ![alt text](https://github.com/JohnK70/EvaDB-ControlNet-Artline/blob/main/DrakeControlArtLine.png?raw=true)
 
 ### Running the app:
-Ensure you have Python 3.10. This is required for all packages to run properly.
+Ensure you have Python 3.10.8. This is required for all packages to run properly.
 
 Clone the github repo into your desired location. 
 
